@@ -11,7 +11,8 @@ require.config({
 
         //External scripts
         'firebase' : '//cdn.firebase.com/v0/firebase',
-        'firebaseAuth' : '//cdn.firebase.com/v0/firebase-simple-login'
+        'firebaseAuth' : '//cdn.firebase.com/v0/firebase-simple-login',
+        'firebind' : '//rawgithub.com/tyrsius/FireBind/master/firebind'
     },
     shim: {
         'firebase' : {
@@ -20,6 +21,10 @@ require.config({
         'firebaseAuth' : {
             deps: ['firebase'],
             exports: 'FirebaseSimpleLogin'
+        },
+        'firebind': {
+            deps: ['firebase', 'knockout'],
+            exports: 'ko'
         },
         'bootstrap': {
             deps: ['jquery'],

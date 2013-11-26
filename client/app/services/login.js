@@ -7,8 +7,18 @@ function (ko, Q, router, app, firebase, firebaseAuth, User) {
 		return user !== null && user !== undefined;
 	});
 
+	var finishLogin = function(user) {
+
+		firebase.setRoot(user.id);
+
+		app.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+		loggedInUser(new User(user));
+		if (authDefer && authDefer.resolve)
+			authDefer.resolve(loggedInUser());
+	};
+
 	var authDefer = Q.defer(),
-		auth = new firebaseAuth(firebase, function(error, user) {
+		auth = new firebaseAuth(firebase.source, function(error, user) {
 			if (error) {
 				// an error occurred while attempting login
 				app.log(error);
@@ -16,9 +26,7 @@ function (ko, Q, router, app, firebase, firebaseAuth, User) {
 				authDefer.reject(error);
 			} else if (user) {
 				// user authenticated with Firebase
-				app.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-				loggedInUser(new User(user));
-				authDefer.resolve(loggedInUser());
+				finishLogin(user);
 			} else {
 				// user is logged out
 				app.log('user logged out');
@@ -46,14 +54,8 @@ function (ko, Q, router, app, firebase, firebaseAuth, User) {
 			if (error)
 				createDefer.reject(error);
 			else {
-				createDefer.resolve(user);
-
-				//Setup user as logged in
-				app.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-				loggedInUser(new User(user));
-
-				if (authDefer && authDefer.resolve)
-					authDefer.resolve(loggedInUser());
+				finishLogin(user);
+				createDefer.resolve(user);				
 			}
 		});
 

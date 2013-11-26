@@ -1,0 +1,18 @@
+<div>
+	<h2>Bills</h2>
+	Total: <span data-bind="text: totalBurden"></span><br/>
+	<button data-bind="click: newBill" class="btn btn-small">
+		New Bill<i class="icon-plus"></i>
+	</button>
+
+	<ul data-bind="foreach: bills">
+		<li>
+			<input placeholder="Name" data-bind="value: name" type="text" />
+			<input placeholder="Due Date" data-bind="value: dueDate" type="text" />
+			<div class="input-prepend inline">
+				<span class="add-on">$</span>
+				<input placeholder="Amount" data-bind="value: amount" type="text" />
+			</div>			
+		</li>
+	</ul>
+</div>
