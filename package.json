@@ -1,0 +1,30 @@
+{
+  "name": "BudgeIt",
+  "version": "0.0.1",
+  "description": "SuperChess\r ==========",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~3.4.4",
+    "sugar": "~1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tyrsius/BudgeIt.git"
+  },
+  "keywords": [
+    "budgeting",
+    "billpay"
+  ],
+  "author": "Tim Moran",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "b32bfd7de03a0714766d770ecb96cbdca924b514",
+  "bugs": {
+    "url": "https://github.com/tyrsius/BudgeIt/issues"
+  }
+}
