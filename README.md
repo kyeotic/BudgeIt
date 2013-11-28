@@ -1,4 +1,4 @@
 BudgeIt
 ==========
 
-Just something to fuck around with
+Just something to fuck around with.
