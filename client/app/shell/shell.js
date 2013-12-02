@@ -6,8 +6,7 @@ function (router, ko, app, loginService) {
         activate: function() {
 
             router.map([
-                { route: '',        moduleId: 'home/index',     title: 'Home',      nav: false },
-                { route: 'home',    moduleId: 'home/index',     title: 'Home',      nav: true }
+                { route: '',        moduleId: 'home/index',     title: 'Home',      nav: true }
             ]).buildNavigationModel();
 
             return router.activate();
