@@ -1,7 +1,5 @@
-define(['knockout', 'durandal/app', 'services/firebase', 'models/bill', 'requre'], 
-function(ko, app, firebase, Bill, require) {
-
-	var income = require('models/income');
+define(['knockout', 'durandal/app', 'services/firebase', 'models/bill', 'models/income'], 
+function(ko, app, firebase, Bill, income) {
 
 	return function Bills() {
 		var self = this;

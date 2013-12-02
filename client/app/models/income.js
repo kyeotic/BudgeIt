@@ -1,4 +1,4 @@
-define(['knockout'], function(ko) {
+define(['knockout', 'services/firebase'], function(ko, firebase) {
 	var Income =  function Income(fireRef) {
 		var self = this;
 
@@ -11,5 +11,5 @@ define(['knockout'], function(ko) {
 
 	Income.prototype.frequencyOptions = ['Weekly', '2 Weeks', '1/2 Month', 'Monthly'];
 
-	return new Income();
+	return new Income(firebase.root.child('income'));
 });
